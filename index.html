@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0505">
+<meta name="description" content="Sinais — um jogo sobre os sinais da violência contra a mulher.">
+<title>Sinais</title>
+<link rel="stylesheet" href="fontes.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="parte-0">
+
+<main id="palco">
+  <canvas id="fundo" aria-hidden="true"></canvas>
+  <div id="scan" aria-hidden="true"></div>
+
+  <div id="device">
+    <div id="flutua"><div id="vibra">
+      <canvas id="mao-tras" class="mao" aria-hidden="true"></canvas>
+
+      <div id="phone">
+        <canvas id="moldura" aria-hidden="true"></canvas>
+        <div id="screen" data-tema="claro" data-view="bloqueio">
+          <div class="ilha" aria-hidden="true"></div>
+
+          <div id="statusbar" aria-hidden="true">
+            <span id="sb-hora">--:--</span>
+            <span class="sb-dir">
+              <span id="sb-som"></span>
+              <span id="sb-sinal"></span>
+              <span id="sb-rede"></span>
+              <span id="sb-wifi"></span>
+              <span id="sb-bat-pct"></span>
+              <span id="sb-bat"></span>
+            </span>
+          </div>
+
+          <!-- Tela de bloqueio -->
+          <section id="v-bloqueio" class="view" aria-label="Tela de bloqueio">
+            <div class="lk-cadeado" data-ic="cadeado" aria-hidden="true"></div>
+            <div id="lk-hora" class="lk-hora">--:--</div>
+            <div id="lk-notif" class="lk-notif" hidden>
+              <div class="lk-n-topo"><span>MENSAGENS</span><span>agora</span></div>
+              <div class="lk-n-nome" id="lk-n-nome"></div>
+              <div class="lk-n-texto" id="lk-n-texto"></div>
+            </div>
+            <div class="lk-abrir">toque para abrir</div>
+          </section>
+
+          <!-- Lista de conversas -->
+          <section id="v-lista" class="view" aria-label="Conversas">
+            <header class="ls-topo">Conversas</header>
+            <ul id="ls-itens" class="ls-itens"></ul>
+            <div id="ls-dica" class="ls-dica"></div>
+          </section>
+
+          <!-- Conversa -->
+          <section id="v-chat" class="view" aria-label="Conversa">
+            <header class="ch-topo">
+              <span class="ch-voltar" data-ic="voltar" aria-hidden="true"></span>
+              <span id="ch-avatar" class="avatar"></span>
+              <span class="ch-info">
+                <span id="ch-nome" class="ch-nome"></span>
+                <span id="ch-estado" class="ch-estado">online</span>
+              </span>
+              <span class="ch-icones" aria-hidden="true"><span data-ic="video"></span><span data-ic="fone"></span></span>
+            </header>
+            <div id="faixa" class="faixa" hidden></div>
+            <div id="msgs" class="msgs" aria-live="polite"></div>
+            <div id="composer" class="composer">
+              <div id="escolhas" class="escolhas" hidden></div>
+              <div id="acao" class="acao" hidden></div>
+              <div class="inputbar">
+                <button id="mais" class="ib-mais" type="button" aria-label="Anexar" data-ic="mais"></button>
+                <div id="campo" class="campo vazio">Mensagem</div>
+                <button id="enviar" class="enviar" type="button" aria-label="Enviar" data-ic="enviar"></button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Câmera (mini-interações) -->
+          <section id="v-camera" class="view" aria-label="Câmera">
+            <div class="cam-topo"><span data-ic="camera"></span><span id="cam-titulo">CÂMERA</span></div>
+            <div id="cam-area" class="cam-area">
+              <div id="cam-quadro" class="cam-quadro">
+                <canvas id="cam-img"></canvas>
+                <div id="cam-pontos" class="cam-pontos"></div>
+                <div id="cam-flash" class="cam-flash"></div>
+              </div>
+            </div>
+            <div id="cam-dica" class="cam-dica"></div>
+            <div class="cam-base">
+              <button id="cam-disparar" class="cam-disparar" type="button" aria-label="Tirar foto"></button>
+              <button id="cam-enviar" class="cam-enviar" type="button" hidden><span data-ic="unica"></span> Enviar</button>
+            </div>
+          </section>
+
+          <!-- Teclado de discagem -->
+          <section id="v-teclado" class="view" aria-label="Teclado">
+            <div id="tc-visor" class="tc-visor"></div>
+            <div id="tc-dica" class="tc-dica"></div>
+            <div id="tc-teclas" class="tc-teclas"></div>
+            <button id="tc-ligar" class="tc-ligar" type="button" aria-label="Ligar" data-ic="fone"></button>
+          </section>
+
+          <!-- Chamada -->
+          <section id="v-chamada" class="view" aria-label="Chamada">
+            <div class="cl-topo">
+              <div id="cl-status" class="cl-status">Ligando…</div>
+              <div id="cl-numero" class="cl-numero">190</div>
+              <div id="cl-nome" class="cl-nome">Polícia Militar</div>
+            </div>
+            <div class="cl-botoes" aria-hidden="true">
+              <span><i data-ic="mudo"></i>mudo</span>
+              <span><i data-ic="teclado"></i>teclado</span>
+              <span><i data-ic="vivavoz"></i>viva-voz</span>
+            </div>
+            <div class="cl-desligar" data-ic="desligar" aria-hidden="true"></div>
+          </section>
+
+          <!-- Janela por cima, dentro do celular (foto, mapa) -->
+          <div id="sobre" class="sobre" hidden></div>
+
+          <div class="home-ind" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <canvas id="mao-frente" class="mao" aria-hidden="true"></canvas>
+    </div></div>
+  </div>
+</main>
+
+<!-- Telas por cima (alerta, cartões, frases, pensamentos, final) -->
+<div id="ov" class="ov" hidden></div>
+
+<div id="hud">
+  <div id="placar" class="placar" hidden title="Sinais reconhecidos">
+    <span id="pl-ic" class="pl-ic"></span><span>SINAIS</span><b id="pl-num">0</b>
+  </div>
+  <button id="btn-tela" type="button" aria-label="Tela cheia" title="Tela cheia (F)" data-ic="tela"></button>
+  <button id="btn-som" type="button" aria-label="Som ligado" title="Som (M)"><span class="ic-som" data-ic="som"></span><span class="ic-mudo" data-ic="semSom"></span></button>
+</div>
+
+<div id="girar" aria-live="polite">
+  <div data-ic="fone"></div>
+  <p>Gire o celular para a vertical para jogar.</p>
+</div>
+
+<pre id="log" hidden></pre>
+
+<noscript><p style="color:#fff;padding:24px;font-family:sans-serif">Este jogo precisa de JavaScript ativado no navegador.</p></noscript>
+
+<script src="roteiro.js"></script>
+<script src="pixel.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

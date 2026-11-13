@@ -1,0 +1,95 @@
+SINAIS — Projeto VI
+====================
+
+COMO SE JOGA
+- O jogador acompanha, pelo celular, as conversas de uma mulher com o
+  namorado, e escolhe as respostas dela.
+- CAÇA AOS SINAIS: durante as conversas, toque nas mensagens que mostram
+  sinais de violência. Elas ganham uma etiqueta amarela e o placar
+  "SINAIS" (canto de cima) aumenta. Tocar numa mensagem que não é sinal
+  não tira pontos.
+- No fim de cada conversa aparecem a frase de efeito e a lista de sinais
+  daquela conversa: os que você reconheceu (✓) e os que passaram (X).
+- No final, um relatório mostra quantos sinais você reconheceu, separados
+  pelos tipos de violência da Lei Maria da Penha.
+- Mini-interações:
+    cena 1: tirar a foto da roupa e mandar
+    cena 2: abrir a foto de visualização única
+    cena 3: o relógio dos 20 minutos corre enquanto você decide
+    cena 5: procurar a chave pela casa (toque nos lugares)
+    cena 7: a localização dele se aproximando (toque na faixa do mapa)
+    cena 9: tocar na Mãe, enviar a localização pelo "+" e discar 1-9-0
+
+COMO JOGAR NO COMPUTADOR
+- Abra o arquivo index.html com dois cliques. Ele abre no navegador
+  (Chrome, Edge ou Firefox) e funciona sem internet.
+- Para apresentar: botão de tela cheia (canto superior direito) ou tecla F.
+- Som: botão de alto-falante ou tecla M. O jogo fica melhor com som.
+- Teclas: 1 e 2 escolhem a resposta. Espaço ou Enter avançam.
+- Duração: cerca de 10 a 12 minutos.
+
+COMO JOGAR NO CELULAR
+- No celular o jogo ocupa a tela toda, sem a mão desenhada.
+- Para abrir no celular, o jogo precisa estar publicado num link
+  (um arquivo HTML guardado no celular quase não abre, principalmente
+  no iPhone). Jeitos gratuitos:
+    * Netlify Drop: entre em app.netlify.com/drop e arraste a pasta
+      "sinais" inteira. Ele gera um link.
+    * GitHub Pages: crie um repositório, envie os arquivos desta pasta
+      e ative o Pages nas configurações.
+- Jogue com o celular em pé (na vertical).
+
+PARA ENSAIAR UMA CENA ESPECÍFICA
+Abra o jogo e, no fim do endereço na barra do navegador, coloque:
+   ?cena=7      (começa na cena 7)
+   ?cena=9.2    (começa no pedido de ajuda para a mãe)
+
+COMO MUDAR OS TEXTOS
+- Todos os textos estão no arquivo roteiro.js. Abra com o Bloco de Notas
+  (botão direito > Abrir com > Bloco de Notas) ou com o VS Code.
+- Mude só o que está entre aspas "assim". Não apague as vírgulas nem as
+  chaves { }. Salve e recarregue a página (F5).
+- Se a página ficar em branco depois de uma edição, provavelmente faltou
+  uma aspa ou uma vírgula na linha que você mexeu.
+
+O QUE FOI CRIADO ALÉM DO ROTEIRO (revisar; tudo editável no roteiro.js)
+- FRASES DE EFEITO entre as cenas: PROVISÓRIAS (campo "frase" de cada
+  cena e "fraseAntes" na cena 9, parte 2).
+- NOMES DOS SINAIS e tipo de violência de cada mensagem (campos "sinal" e
+  "violencia"). Os tipos seguem o art. 7º da Lei Maria da Penha
+  (Lei nº 11.340/2006); as definições ficam em "tiposViolencia".
+  Para tirar uma mensagem da caça aos sinais, apague "sinal" e
+  "violencia" dela.
+- Textos do tutorial ("COMO JOGAR") e das mini-interações (bloco
+  "interacoes"), incluindo o perfil fictício da foto da cena 2 (lucas.m)
+  e as falas da busca pela chave.
+- Títulos das partes: Sinal amarelo / Sinal laranja / Sinal vermelho.
+- Status do celular das cenas 4, 5 e 6 (o roteiro não define):
+    cena 4: 11:00, com som, Wi-Fi cheio, 65%
+    cena 5: 08:00, com som, Wi-Fi cheio, 87%
+    cena 6: 22:30, sem Wi-Fi, 5G, 15%
+- "Manda localização." (cena 9) virou o envio da localização pelo "+".
+- A lista de conversas da cena 9 (Mãe, Amor, Nat) e as prévias delas.
+- Maiúsculas corrigidas no texto final: "Antes dele…" e
+  "Mulheres não precisam…".
+- Celular claro ou escuro é automático pela hora da cena
+  (06:00 até 17:59 = claro; o resto = escuro).
+- A vibração do celular acontece só na tela de bloqueio, quando chega a
+  primeira mensagem.
+
+OUTROS AJUSTES
+- Velocidade geral do jogo: em roteiro.js, config.velocidade
+  (1 = normal, 1.3 = mais rápido, 0.8 = mais devagar).
+- Créditos com os nomes do grupo na tela final: em roteiro.js,
+  config.creditos.
+- Cores da pele da mão: no começo do arquivo pixel.js (peleLuz, pele,
+  peleSombra, peleEscura).
+
+ARQUIVOS
+  index.html  -> a página do jogo (é este que se abre)
+  roteiro.js  -> todos os textos
+  pixel.js    -> a arte em pixel (mão, celular, flores, mapa, câmera)
+  style.css   -> cores e visual
+  fontes.css  -> as fontes pixel (VT323 e Press Start 2P, licença OFL)
+  game.js     -> funcionamento do jogo (não precisa mexer)
+  fontes/     -> arquivos originais das fontes e licenças
